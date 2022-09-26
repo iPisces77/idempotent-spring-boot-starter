@@ -10,16 +10,18 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author fuhaixin
- *
  **/
 @Inherited
 @Documented
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Idempotent {
+
   int expireTime() default 1000;
 
   TimeUnit timeUnit() default TimeUnit.MILLISECONDS;
 
   String message() default "请勿重复提交";
+
+  boolean afterDel() default false;
 }
