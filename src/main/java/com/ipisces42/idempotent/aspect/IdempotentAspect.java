@@ -7,7 +7,6 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 import javax.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -24,7 +23,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Aspect
 public class IdempotentAspect {
 
-  public static final ReentrantLock lock = new ReentrantLock();
+
   private static final Logger LOG = LoggerFactory.getLogger(IdempotentAspect.class);
   private static final String RMAP_KEY = "idempotent";
   @Autowired
